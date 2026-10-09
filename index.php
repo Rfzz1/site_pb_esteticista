@@ -12,6 +12,13 @@ include 'conexao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <title>Priscila Bressan - Esteticista</title>
 </head>
 <body>
@@ -23,8 +30,6 @@ include 'conexao.php';
 
 <!-- CONTEÚDO PRINCIPAL -->
 
-<h1>PRISCILA BRESSAN - ESTETICISTA</h1>
-
 <!-- CADASTRO -->
 
 <section class="container">
@@ -33,31 +38,32 @@ include 'conexao.php';
 
         <h2 class="titulo-modal">CRIAR CONTA</h2>
 
-        <form action="action.php" method="post">
-            <!-- Campos do formulário -->
-            <label for="nome">Nome</label><br>
-            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
-            <br><br>
-            <label for="cpf">CPF</label><br>
-            <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
-            <br><br>
-            <label for="cidade">Cidade</label><br>
-            <input type="text" id="cidade" name="cidade" required>
-            <br><br>
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="e-mail" required>
-            <br><br>
-            <label for="telefone">Telefone</label><br>
-            <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
-            <br><br>
-            <label for="nascimento">Nascimento</label><br>
-            <input type="date" id="nascimento" name="nascimento" required>
-            <br><br>
-            <label for="senha">Senha</label><br>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required>
-            <br><br>
-            <input type="submit" value="CADASTRAR">
-        </form>
+        <section class = "modal-overlay">
+
+            <form action="action.php" method="post">
+                <!-- Campos do formulário -->
+                <label for="nome">Nome Completo</label><br>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                <br><br>
+                <label for="cpf">CPF</label><br>
+                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
+                <br><br>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <br><br>
+                <label for="telefone">Telefone</label><br>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
+                <br><br>
+                <label for="nascimento">Nascimento</label><br>
+                <input type="date" id="nascimento" name="nascimento" required>
+                <br><br>
+                <label for="senha">Senha</label><br>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <br><br>
+                <input class="submit" type="submit" value="CADASTRAR">
+            </form>
+
+        </section>
 
     </section>
 
@@ -73,17 +79,21 @@ include 'conexao.php';
 
             <h2 class="titulo-modal">ENTRAR</h2>
 
-            <form action="login.php" method="post">
-                <!-- Campos do formulário -->
+            <section class = "modal-overlay">
 
-                <label for="email">Email</label><br>
-                <input type="email" id="email" name="email" placeholder="e-mail" required>
-                <br><br>
-                <label for="senha">Senha</label><br>
-                <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                <br><br>
-                <input type="submit" value="LOGIN">
-            </form>
+                <form action="login.php" method="post">
+                    <!-- Campos do formulário -->
+
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                    <br><br>
+                    <label for="senha">Senha</label><br>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <br><br>
+                    <input class="submit" type="submit" value="LOGIN">
+                </form>
+
+            </section>
 
         </section>
 
@@ -100,7 +110,6 @@ include 'conexao.php';
 <!-- RODAPÉ -->
 
 <footer>
-    &copy Priscila Bressan - Esteticista
 </footer>
     
 </body>
