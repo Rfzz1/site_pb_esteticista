@@ -12,6 +12,7 @@ include 'conexao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/tabela.css">
     <link rel="stylesheet" href="css/cabecalho.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,8 +33,6 @@ include 'cabecalho.php';
 
 <?php if(isset($_SESSION['usuario_id'])): ?>
 
-    <h2>USUÁRIOS</h2>
-
     <?php 
     
     $sqlBuscarTodosUsers = $conexao -> prepare("SELECT * FROM tb_usuarios");
@@ -43,28 +42,38 @@ include 'cabecalho.php';
 
     ?>
 
-    <table>
+    <section class="container-tabela">
 
-        <tr>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Cidade</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Nascimento</th>
-        </tr>
+        <h2 class="titulo">GERENCIAR USUÁRIOS</h2>
 
-            <?php while($usuarios = $resultado -> fetch_assoc()): ?>
-            <tr>
+        <table>
 
-                <td><?php htmlspecialchars($usuarios['nome']) ?></td>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Nascimento</th>
+                </tr>
+            </thead>
 
-            </tr>
+            <tbody>
+                <?php while($usuarios = $resultado -> fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars(trim($usuarios['nome']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($usuarios['cpf']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($usuarios['email']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($usuarios['telefone']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($usuarios['nascimento']) ?? "") ?></td>
+                </tr>
+            </tbody>
 
             <?php endwhile; ?>
 
+        </table>
 
-    </table>
+    </section>
 
 
 <?php else: ?>

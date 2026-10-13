@@ -1,0 +1,61 @@
+.titulo {
+    padding: 50px 50px;
+}
+
+.container-tabela {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    width: 80vw;
+    border-collapse: collapse; 
+    border: 1px solid white;
+}
+
+table th {
+    background-color: blueviolet;
+    border-bottom: 1px solid white;
+}
+
+table td {
+    border-bottom: 1px solid white;
+}
+
+table th,
+table td {
+    padding: 10px;    
+}
+
+.tarefas-tabela {
+    width: 60vw;
+}
+
+.botoes {
+    padding: 0px;
+}
+
+.editar,
+.excluir,
+.adicionar {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.editar {
+    background-color: rgb(194, 174, 0);
+}
+
+.excluir {
+    background-color: rgb(187, 3, 3);
+}
+
+.adicionar {
+    background-color: rgb(26, 107, 2);
+}
