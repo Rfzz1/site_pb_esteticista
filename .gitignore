@@ -1,0 +1,6 @@
+# Ignora arquivos específicos
+conexao.php
+
+# Ignora arquivos de mídia
+*.mp4
+*.png
