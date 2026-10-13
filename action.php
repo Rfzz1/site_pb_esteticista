@@ -18,13 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sqlCadastro = $conexao->prepare("INSERT INTO tb_usuarios (nome,cpf,email,telefone,nascimento,senha) VALUES (?,?,?,?,?,?)");
 
-    $sqlCadastro -> bind_param("ssssss", $nome, $cpf, $email, $telefone, $nascimento, $senhaHashada);
-    $sqlCadastro -> execute();
+    $sqlCadastro->bind_param("ssssss", $nome, $cpf, $email, $telefone, $nascimento, $senhaHashada);
+    $sqlCadastro->execute();
 
-    header("Location: index.php");
+    header("Location: modal_login.php");
     exit;
-
 }
-
-
-?>

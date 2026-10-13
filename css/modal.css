@@ -6,10 +6,10 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: var(--altura-cabecalho);
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100% - var(--altura-cabecalho));
 }
 
 .modal {
@@ -27,10 +27,10 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  font-family: "Clarity City", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Padrão atual */
 }
 
 .modal-overlay {
@@ -61,10 +61,26 @@ input {
   max-width: 400px;
   font-size: 13px;
   border: 1px solid rgba(43, 43, 43, 0.842);
+  cursor: pointer;
 }
 
 .submit {
-  background-color:rgb(243, 152, 243);
+  background-color: rgb(243, 152, 243);
   color: rgba(0, 0, 0, 0.925);
   font-weight: 800;
+}
+
+.container-links,
+.container-mensagens {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.texto-mensagem {
+  color: rgb(199, 3, 3);
+  font-weight: 700;
 }

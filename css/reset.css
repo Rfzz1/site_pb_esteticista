@@ -1,5 +1,29 @@
+:root {
+    --altura-cabecalho: 10vh;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+
+    font-size: 23px;
+}
+
+body {
+    font-family: "Clarity City", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background-color: rgb(16, 16, 17);
+    color: aliceblue;
+    /* Background, colors */
+}
+
+a {
+    color: rgb(243, 152, 243);
 }

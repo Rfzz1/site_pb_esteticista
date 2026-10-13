@@ -25,7 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
 
     } else {
-        echo "Email ou senha incorretos";
+        $_SESSION['mensagem'] = "Email ou senha incorretos";
+        header("Location: modal_login.php");
+        exit;
     }
 
 }

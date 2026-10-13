@@ -1,8 +1,33 @@
 header {
-    background-color: rgba(29, 29, 29, 0.842);
-    width: 100vw;
-    height: 10vh;
-    top: 0;
-    left: 0;
-    color: white;
+  background-color: rgba(29, 29, 29, 0.842);
+  width: 100vw;
+  height: 10vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
+  gap: 88vw;
+}
+
+button {
+  background: none;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 0.6vh;
 }
