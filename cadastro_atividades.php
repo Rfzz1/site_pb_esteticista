@@ -2,6 +2,13 @@
 session_start();
 include 'conexao.php';
 
+$id_usuario = $_SESSION['usuario_id'];
+
+$sqlBuscaTarefa = $conexao -> prepare("SELECT * FROM tb_tarefas WHERE id_usuario = ?");
+$sqlBuscaTarefa -> bind_param("i", $id_usuario);
+$sqlBuscaTarefa -> execute();
+
+$resultado = $sqlBuscaTarefa -> get_result();
 
 ?>
 
@@ -34,28 +41,46 @@ include 'cabecalho.php';
 
     <section class="container-tabela">
 
+        <h2 class="titulo">CADASTRO DE TAREFAS</h2>
+
         <table class="tarefas-tabela">
             <tr>
                 <th>Nome</th>
                 <th>Descricao</th>
-                <th>Tempo</th>
-                <th></th>
+                <th>Expira em</th>
                 <th></th>
             </tr>
+
+            <?php while($tarefa = $resultado -> fetch_assoc()): ?>
+
+                <tr>
+                    <td><?php echo htmlspecialchars(trim($tarefa['nome']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($tarefa['descricao']) ?? "") ?></td>
+                    <td><?php echo htmlspecialchars(trim($tarefa['tempo']) ?? "") ?></td>
+                    <td>
+                        <section class="botoes">
+                            <button class="editar" onclick="location.href='modal_editar_tarefa.php'">EDITAR</button>
+
+                            <form action="action.php" method="POST">
+                                <input type="hidden" id='id' name='id' value="<?php echo htmlspecialchars($tarefa['id']) ?>">
+                                <button class="excluir" name='excluir_tarefa' onclick="location.href='action.php'">EXCLUIR</button>
+                            </form>
+
+                        </section>
+                    </td>
+                </tr>
+
+            <?php endwhile ?>
 
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="botoes"><button class="editar" onclick="location.href='action.php'">EDITAR</button></td>
-                <td class="botoes"><button class="excluir" onclick="location.href='action.php'">EXCLUIR</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="botoes"><button class="adicionar" onclick="location.href='action.php'">ADICIONAR</button></td>
+                <td>
+                    <section class="botoes">
+                        <button class="adicionar" onclick="location.href='modal_cadastro_tarefa.php'">ADICIONAR</button>
+                    </section>
+                </td>
             </tr>
         </table>
 

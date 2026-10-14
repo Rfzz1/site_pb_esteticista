@@ -24,6 +24,7 @@ table th {
 
 table td {
     border-bottom: 1px solid white;
+    padding: 10px;
 }
 
 table th,
@@ -32,11 +33,18 @@ table td {
 }
 
 .tarefas-tabela {
-    width: 60vw;
+    width: 50vw;
 }
 
 .botoes {
     padding: 0px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .editar,
@@ -58,4 +66,5 @@ table td {
 
 .adicionar {
     background-color: rgb(26, 107, 2);
+    width: 60%;
 }

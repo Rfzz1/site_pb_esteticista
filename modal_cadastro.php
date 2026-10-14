@@ -33,7 +33,7 @@ include 'cabecalho.php';
 
 <section class="container">
 
-    <section class="modal" id="cadastro">
+    <section class="modal">
 
         <h2 class="titulo-modal">CRIAR CONTA</h2>
 
@@ -59,7 +59,7 @@ include 'cabecalho.php';
                 <label for="senha">Senha</label><br>
                 <input type="password" id="senha" name="senha" placeholder="Senha" required>
                 <br><br>
-                <input class="submit" type="submit" value="CADASTRAR">
+                <input class="submit" type="submit" value="CADASTRAR" name="cadastro">
                 <section class="container-links">
                         <p>Já possui uma conta? <a href="modal_login.php">Entrar</a></p>
                 </section>
