@@ -14,6 +14,7 @@ include 'conexao.php';
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/tabela.css">
     <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/modal.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,63 +24,84 @@ include 'conexao.php';
 </head>
 <body>
 
-<!-- CABEÇALHO -->
+<!-- CABECALHO -->
 
-<?php
-include 'cabecalho.php';
+<?php 
+    if(isset($_SESSION['usuario_id'])) {
+        include "cabecalho.php";
+    }
 ?>
 
-<!-- CONTEÚDO PRINCIPAL -->
+<!-- CONTAINER GLOBAL INDEX -->
+<section class="container-global">
 
-<?php if(isset($_SESSION['usuario_id'])): ?>
 
-    <?php 
-    
-    $sqlBuscarTodosUsers = $conexao -> prepare("SELECT * FROM tb_usuarios");
-    $sqlBuscarTodosUsers -> execute();
+    <!-- CONTAINER LATERAL -->
 
-    $resultado = $sqlBuscarTodosUsers -> get_result();
-
-    ?>
-
-    <section class="container-tabela">
-
-        <h2 class="titulo">GERENCIAR USUÁRIOS</h2>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Nascimento</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php while($usuarios = $resultado -> fetch_assoc()): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars(trim($usuarios['nome']) ?? "") ?></td>
-                    <td><?php echo htmlspecialchars(trim($usuarios['cpf']) ?? "") ?></td>
-                    <td><?php echo htmlspecialchars(trim($usuarios['email']) ?? "") ?></td>
-                    <td><?php echo htmlspecialchars(trim($usuarios['telefone']) ?? "") ?></td>
-                    <td><?php echo htmlspecialchars(trim($usuarios['nascimento']) ?? "") ?></td>
-                </tr>
-            </tbody>
-
-            <?php endwhile; ?>
-
-        </table>
-
+    <section class="container-lateral">
+        <div class="logo">
+            <p>
+                <span><img src="img/logo-bolinha.svg" alt="Logo" width="50" height="50"></span>    
+                <span class="texto-logo">Priscila Bressan</span>
+            </p>
+        </div>
+        <section class="texto-pg-inicial">
+            <h1 class="titulo-pg-inicial">Respeite sua Identidade</h1>
+            <p class="subtitulo-pg-inicial">Gerenciamento de Clientes e Finanças</p>
+        </section>
+        <p class="texto-inferior">Priscila Bressan - Esteticista</p>
     </section>
 
+    <!-- LOGIN -->
 
-<?php else: ?>
+    <?php if (!isset($_SESSION['usuario_id'])): ?>
 
+        <section class="container-modal">
 
-<?php endif ?>
+            <section class = "modal" id="login">
+
+                <h2 class="titulo-modal">ENTRAR</h2>
+
+                <section class = "modal-overlay">
+
+                    <form action="login.php" method="post">
+                        <!-- Campos do formulário -->
+
+                        <label for="email">Email</label><br>
+                        <input type="email" id="email" name="email" placeholder="E-mail" required>
+                        <br><br>
+                        <label for="senha">Senha</label><br>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                        <br><br>
+                        <section class="container-mensagens">
+                            <?php if(isset($_SESSION['mensagem'])): ?>
+
+                                <p class="texto-mensagem"> <?php echo $_SESSION['mensagem'] ?> </p>
+                                <?php unset($_SESSION['mensagem']) ?>
+
+                            <?php endif ?>
+                        </section>
+                        <input class="submit" type="submit" value="LOGIN">
+                        <section class="container-links">
+                            <p>Não possui uma conta? <a href="modal_cadastro.php">Criar Conta</a></p>
+                        </section>
+                    </form>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    <?php else: ?>
+
+        <h1>LOGADO</h1>
+
+        <h3>Faça Logout: <a href="logout.php">Sair</a></h3>
+
+    <?php endif ?>
+
+</section>
 
 <!-- RODAPÉ -->
 

@@ -1,5 +1,10 @@
 :root {
     --altura-cabecalho: 10vh;
+    --dourado: #C9A54C;
+    --branco: #F7F5EF;
+    --verde: #0F3D2E;
+    --lavanda: #7E6B8F;
+    --oliva: #848161;
 }
 
 
@@ -21,9 +26,6 @@ body {
     font-style: normal;
     background-color: rgb(16, 16, 17);
     color: aliceblue;
+    line-height: 1.5;
     /* Background, colors */
-}
-
-a {
-    color: rgb(243, 152, 243);
 }

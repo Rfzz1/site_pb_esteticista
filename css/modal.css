@@ -1,24 +1,21 @@
-.container {
+.container-modal {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
   align-items: center;
-  position: fixed;
   top: var(--altura-cabecalho);
   left: 0;
-  width: 100vw;
-  height: calc(100% - var(--altura-cabecalho));
+  background-color: var(--branco);
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.829);
-  color: rgb(211, 211, 211);
+  color: var(--oliva);
   max-width: 400px;
   width: 90%;
   border-radius: 10px;
-  border: 1px solid rgb(243, 152, 243);
+  border: 1px solid var(--cor-principal);
   height: auto;
   max-height: 85vh;
   display: flex;
@@ -40,33 +37,36 @@
   flex-direction: column;
   width: 100%;
   max-width: 350px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .titulo-modal {
   font-size: 25px;
   margin-bottom: 12px;
   margin-top: 20px;
-  color: rgb(211, 211, 211);
+  color: var(--oliva);
 }
 
 input {
   padding: 10px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.925);
   color: rgb(230, 227, 227);
   margin-bottom: 15px;
   margin-top: 10px;
   width: 100%;
   max-width: 400px;
-  font-size: 13px;
-  border: 1px solid rgba(43, 43, 43, 0.842);
+  font-size: 15px;
+  border: 1px solid var(--verde);
   cursor: pointer;
 }
 
+input:focus {
+  outline: 2px solid var(--verde);
+}
+
 .submit {
-  background-color: rgb(243, 152, 243);
-  color: rgba(0, 0, 0, 0.925);
+  background-color: var(--verde);
+  color: var(--branco);
   font-weight: 800;
 }
 
@@ -78,6 +78,11 @@ input {
   align-content: center;
   justify-content: center;
   align-items: center;
+}
+
+.container-links a {
+  text-decoration: none;
+  color: var(--dourado);
 }
 
 .texto-mensagem {
