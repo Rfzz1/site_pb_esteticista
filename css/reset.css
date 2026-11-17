@@ -5,6 +5,7 @@
     --verde: #0F3D2E;
     --lavanda: #7E6B8F;
     --oliva: #848161;
+    --largura-tabela: 60vw;
 }
 
 
@@ -24,8 +25,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    background-color: rgb(16, 16, 17);
-    color: aliceblue;
+    background-color: var(--branco);
+    color: var(--oliva);
     line-height: 1.5;
     /* Background, colors */
 }

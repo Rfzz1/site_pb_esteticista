@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
     $sqlCadastro->bind_param("ssssss", $nome, $cpf, $email, $telefone, $nascimento, $senhaHashada);
     $sqlCadastro->execute();
 
-    header("Location: modal_login.php");
+    header("Location: index.php");
     exit;
 }
 

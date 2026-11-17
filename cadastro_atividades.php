@@ -20,6 +20,7 @@ $resultado = $sqlBuscaTarefa -> get_result();
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/tabela.css">
     <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

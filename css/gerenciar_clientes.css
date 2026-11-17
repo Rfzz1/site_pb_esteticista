@@ -1,0 +1,44 @@
+.cabecalho-conteudo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.linha-titulo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--largura-tabela);
+    padding: 20px;
+}
+
+.titulo {
+    color: var(--verde);
+}
+
+.conteudo-global {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 50px;
+}
+.cadastro-cliente-button {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--verde);
+    color: var(--branco);
+    width: 100%;
+    max-width: 200px;
+    font-size: 15px;
+    border: 1px solid var(--verde);
+    cursor: pointer;
+}

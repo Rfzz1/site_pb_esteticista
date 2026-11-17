@@ -1,7 +1,7 @@
 header {
-  background-color: rgba(29, 29, 29, 0.842);
-  width: 100vw;
-  height: 10vh;
+  background-color: var(--oliva);
+  width: 15vw;
+  height: 100vh;
   top: 0;
   left: 0;
   display: flex;
@@ -9,30 +9,56 @@ header {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  align-items: center;
+  align-items: flex-start;
 }
+
+.navegacao {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 nav {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center; 
   align-items: center;
+  display: flex;
+  justify-content: space-between;
   max-width: 100%;
   width: 95%;
   margin: 0 auto;
+  height: 100%;
 }
 
 .container-botoes {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  flex: 1; 
 }
 
-button {
-  background: none;
-  color: aliceblue;
+.btn-logout {
+  margin-top: auto;         /* o truque: empurra para o fundo */
+}
+
+.nav-cabecalho button {
+  color: var(--branco);
   border: none;
+  background: none;
+  padding: 9px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 20px;
-  margin-top: 0.6vh;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
 }

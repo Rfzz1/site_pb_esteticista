@@ -1,39 +1,52 @@
-.titulo {
-    padding: 50px 50px;
-}
-
-.container-tabela {
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 table {
-    width: 80vw;
-    border-collapse: collapse; 
-    border: 1px solid white;
+    width: var(--largura-tabela);
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--branco);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 15px;
+}
+
+/* Canto superior esquerdo */
+table tr:first-child th:first-child,
+table tr:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* Canto superior direito */
+table tr:first-child th:last-child,
+table tr:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* Canto inferior esquerdo */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px; /* */
+}
+
+/* Canto inferior direito */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px; /* */
 }
 
 table th {
-    background-color: blueviolet;
-    border-bottom: 1px solid white;
+    background-color: var(--verde);
+    border-bottom: 1px solid var(--branco);
+    color: var(--branco);
+    font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
 }
 
 table td {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--branco);
     padding: 10px;
+    color: var(--verde);
 }
 
 table th,
 table td {
-    padding: 10px;    
-}
-
-.tarefas-tabela {
-    width: 50vw;
+    padding: 14px 18px;    
 }
 
 .botoes {
@@ -45,26 +58,4 @@ table td {
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
-}
-
-.editar,
-.excluir,
-.adicionar {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.editar {
-    background-color: rgb(194, 174, 0);
-}
-
-.excluir {
-    background-color: rgb(187, 3, 3);
-}
-
-.adicionar {
-    background-color: rgb(26, 107, 2);
-    width: 60%;
 }

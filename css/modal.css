@@ -16,6 +16,8 @@
   width: 90%;
   border-radius: 10px;
   border: 1px solid var(--cor-principal);
+  background-color: white;
+  box-shadow: 0 10px 50px gray;
   height: auto;
   max-height: 85vh;
   display: flex;
@@ -28,7 +30,9 @@
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Padrão atual */
+  font-weight: 600;
 }
+
 
 .modal-overlay {
   flex: 1 1 auto;
@@ -43,14 +47,14 @@
 .titulo-modal {
   font-size: 25px;
   margin-bottom: 12px;
-  margin-top: 20px;
+  margin-top: 35px;
   color: var(--oliva);
 }
 
 input {
   padding: 10px;
   border-radius: 8px;
-  color: rgb(230, 227, 227);
+  color: var(--verde);
   margin-bottom: 15px;
   margin-top: 10px;
   width: 100%;
@@ -61,7 +65,7 @@ input {
 }
 
 input:focus {
-  outline: 2px solid var(--verde);
+  outline: 1px solid var(--verde);
 }
 
 .submit {
@@ -88,4 +92,8 @@ input:focus {
 .texto-mensagem {
   color: rgb(199, 3, 3);
   font-weight: 700;
+}
+
+.oculto {
+  display: none !important;
 }

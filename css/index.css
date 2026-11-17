@@ -23,20 +23,28 @@
     color:var(--branco);
 }
 
+.logo {
+    margin-bottom: 30px;
+}
+
 .logo p {
     display: flex;          
     align-items: center;     
     gap: 1vw;                 
     margin: 0;  
     font-size: 18px;
+    line-height: 1;
 }             
 
 .logo img {
-    display: block;           
+    display: block;
+    cursor: pointer;        
 }
 
 .texto-logo {
-    margin-left: 0;       
+    margin-left: 0;  
+    color: var(--branco);   
+    cursor: pointer;
 }
 
 .texto-inferior {
