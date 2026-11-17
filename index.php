@@ -15,6 +15,7 @@ include 'conexao.php';
     <link rel="stylesheet" href="css/tabela.css">
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="icon" href="img/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">

@@ -1,3 +1,13 @@
+<?php
+// Nome do arquivo da página atual. Ex: "gerenciamento_de_clientes.php"
+$paginaAtual = basename($_SERVER['PHP_SELF']);
+
+// Função pequena: devolve " ativo" se o link é da página atual
+function ativo($pagina, $paginaAtual) {
+    return $pagina === $paginaAtual ? ' ativo' : '';
+}
+?>
+
 <header>
 
     <nav class="nav-cabecalho">
@@ -5,9 +15,9 @@
         <section class="container-botoes">
 
              <?php if(!isset($_SESSION['usuario_id'])): ?>
-                <button onclick="location.href='modal_login.php'">
+                <a class="botao-menu" href='modal_login.php'>
                     Sign in
-                </button>
+                </a>
             <?php else: ?>
             
                 <section class="logo">
@@ -19,27 +29,34 @@
 
                 <section class="navegacao">
 
-                    <button onclick="location.href='index.php'">
+                    <a class="botao-menu<?= ativo('index.php', $paginaAtual) ?>" href="index.php">
+                        <i class="bi bi-house-door"></i>
                         Home
-                    </button>           
-                    <button onclick="location.href='gerenciamento_de_clientes.php'">
+                    </a>           
+                    <a class="botao-menu<?= ativo('gerenciamento_de_clientes.php', $paginaAtual) ?>" href="gerenciamento_de_clientes.php">
+                        <i class="bi bi-person"></i>
                         Clientes
-                    </button>
-                    <button onclick="location.href='gerenciamento_de_clientes.php'">
+                    </a>
+                    <a class="botao-menu<?= ativo('', $paginaAtual) ?>" href="">
+                        <i class="bi bi-calendar-check"></i>
                         Atendimentos
-                    </button>                                                                       
-                    <button onclick="location.href='cadastro_atividades.php'">
+                    </a>                                                                       
+                    <a class="botao-menu<?= ativo('', $paginaAtual) ?>" href="">
+                        <i class="bi bi-cash-coin"></i>
                         Finanças
-                    </button>
+                    </a>
 
                 </section>
 
-                <button class="btn-logout" onclick="location.href='logout.php'">
+                <a class="botao-menu btn-logout" href='logout.php'>
+                    <i class="bi bi-box-arrow-right"></i>
                     Logout
-                </button>
+                </a>
             <?php endif ?>
 
         </section>
     </nav>
 
 </header>
+
+<script src="js/script_cabecalho.js" defer></script>

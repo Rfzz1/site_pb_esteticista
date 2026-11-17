@@ -6,6 +6,18 @@ $sql = $conexao -> prepare("SELECT * FROM tb_usuarios");
 $sql -> execute();
 
 $resultado = $sql -> get_result();
+
+$sqlBuscarUsuariosCadastrados = $conexao -> prepare("SELECT COUNT(*) AS clientes FROM tb_usuarios");
+$sqlBuscarUsuariosCadastrados -> execute();
+
+$clientesTotal = $sqlBuscarUsuariosCadastrados -> get_result();
+
+if ($clientesTotal) {
+    $numero = $clientesTotal -> fetch_assoc();
+} else {
+    die ("Não encontrado");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +32,7 @@ $resultado = $sql -> get_result();
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/gerenciar_clientes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="icon" href="img/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -57,8 +70,16 @@ $resultado = $sql -> get_result();
     <section class="conteudo-global">
 
         <section class="linha-titulo">
-            <h1 class="titulo">Clientes</h1>
-            <button class="cadastro-cliente-button" onclick="location.href='modal_cadastro_cliente.php'">Cadastrar Cliente</button>
+
+            <section>
+                <h1 class="titulo">Clientes</h1>
+                <p class="subtitulo-clientes"><?php echo htmlspecialchars(trim($numero['clientes']) ?? "") ?> Clientes Cadastrados</p>
+            </section>
+
+            <button class="cadastro-cliente-button" onclick="location.href='modal_cadastro_cliente.php'">
+                <i class="bi bi-person-plus"></i>
+                Cadastrar Cliente
+            </button>
         </section>
 
         <section class="container-tabela">
@@ -68,7 +89,6 @@ $resultado = $sql -> get_result();
                 <tr>
                     <th>CLIENTE</th>
                     <th>TELEFONE</th>
-                    <th>EMAIL</th>
                     <th>CPF</th>
                     <th>PRÓXIMO ATENDIMENTO</th>
                 </tr>
@@ -77,10 +97,12 @@ $resultado = $sql -> get_result();
                     <?php while ($cliente = $resultado -> fetch_assoc()): ?>
 
                         <tr>
-                            <td><?php echo htmlspecialchars(trim($cliente['nome']) ?? "")?></td>
-                            <td><?php echo htmlspecialchars(trim($cliente['telefone']) ?? "")?></td>
-                            <td><?php echo htmlspecialchars(trim($cliente['email']) ?? "")?></td>
-                            <td><?php echo htmlspecialchars(trim($cliente['cpf']) ?? "")?></td>
+                            <td>
+                                <p><?php echo htmlspecialchars(trim($cliente['nome']) ?? "")?></p>
+                                <p class="email-cliente"><?php echo htmlspecialchars(trim($cliente['email']) ?? "")?></p>
+                            </td>
+                            <td><p><?php echo htmlspecialchars(trim($cliente['telefone']) ?? "")?></p></td>
+                            <td><p><?php echo htmlspecialchars(trim($cliente['cpf']) ?? "")?></p></td>
                             <td></td>
                         </tr>
 

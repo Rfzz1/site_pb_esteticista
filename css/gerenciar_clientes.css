@@ -20,6 +20,7 @@
 
 .titulo {
     color: var(--verde);
+    font-size: 45px;
 }
 
 .conteudo-global {
@@ -38,7 +39,28 @@
     color: var(--branco);
     width: 100%;
     max-width: 200px;
-    font-size: 15px;
+    font-size: 17px;
     border: 1px solid var(--verde);
     cursor: pointer;
+    display: flex;
+}
+
+.linha-titulo button {
+    display: inline-flex;   /* coloca ícone e texto lado a lado */
+    align-items: center;
+    justify-content: center;
+    font-weight: 510;
+    gap: 13px;          
+}
+
+.linha-titulo button i {
+    font-size: 1.1em;
+}
+
+.email-cliente {
+    color: var(--oliva);
+}
+
+.subtitulo-clientes {
+    font-size: 18px;
 }

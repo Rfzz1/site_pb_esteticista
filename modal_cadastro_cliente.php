@@ -13,10 +13,16 @@ include 'conexao.php';
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
     <title>Priscila Bressan - Esteticista</title>
 </head>
@@ -62,6 +68,8 @@ include 'cabecalho.php';
     </section>
 
 </section>
+
+
 
 <!-- RODAPÉ -->
 

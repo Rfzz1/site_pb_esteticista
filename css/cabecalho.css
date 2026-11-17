@@ -1,6 +1,6 @@
 header {
-  background-color: var(--oliva);
-  width: 15vw;
+  background-color: var(--verde);
+  width: 17vw;
   height: 100vh;
   top: 0;
   left: 0;
@@ -15,30 +15,35 @@ header {
 .navegacao {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
+    align-content: flex-start;
     justify-content: center;
     align-items: flex-start;
+    width: 140%;
+    gap: 6px;
+}
+
+.texto-logo {
+  color: var(--oliva);
+  font-size: 17px;
+  font-weight: 600;
 }
 
 nav {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center; 
-  align-items: center;
+  align-content: flex-start;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
   max-width: 100%;
-  width: 95%;
+  width: 85%;
   margin: 0 auto;
   height: 100%;
 }
 
 .container-botoes {
   display: flex;
-  align-items: center;
-  gap: 10px;
   flex-direction: column;
   margin-top: 30px;
   align-items: flex-start;
@@ -48,17 +53,42 @@ nav {
 }
 
 .btn-logout {
-  margin-top: auto;         /* o truque: empurra para o fundo */
+  margin-top: auto;         /* empurra para o fundo */
 }
 
-.nav-cabecalho button {
-  color: var(--branco);
+.nav-cabecalho a {
+  color: var(--oliva);
+  text-decoration: none;
   border: none;
   background: none;
-  padding: 9px;
+  padding: 9px 12px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
   font-family: inherit;
   font-weight: 500;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.navegacao a,
+.btn-logout {
+    display: inline-flex;   /* coloca ícone e texto lado a lado */
+    align-items: center;
+    gap: 13px;          
+}
+
+.botao-menu.ativo {
+  background-color: var(--oliva);
+  color: var(--branco);
+  border-radius: 10px;
+}
+
+.botao-menu:hover:not(.ativo) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navegacao a i,
+.btn-logout i {
+    font-size: 1.1em;
 }
