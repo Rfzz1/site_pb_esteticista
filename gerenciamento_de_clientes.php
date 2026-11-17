@@ -76,7 +76,7 @@ if ($clientesTotal) {
                 <p class="subtitulo-clientes"><?php echo htmlspecialchars(trim($numero['clientes']) ?? "") ?> Clientes Cadastrados</p>
             </section>
 
-            <button class="cadastro-cliente-button" onclick="location.href='modal_cadastro_cliente.php'">
+            <button type="button" id="abrir-modal-cliente" class="cadastro-cliente-button">
                 <i class="bi bi-person-plus"></i>
                 Cadastrar Cliente
             </button>
@@ -116,5 +116,7 @@ if ($clientesTotal) {
 
 </section>
     
+<?php include 'modal_cadastro_cliente.php'; ?>
+<script src="js/script_cliente.js" defer></script>
 </body>
 </html>

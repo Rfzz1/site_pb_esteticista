@@ -1,66 +1,39 @@
-<?php
-session_start();
-include 'conexao.php';
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/cabecalho.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="img/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-    <title>Priscila Bressan - Esteticista</title>
-</head>
-<body>
-
-<!-- CABEÇALHO -->
-<?php
-include 'cabecalho.php';
-?>
-
 <!-- CONTEÚDO PRINCIPAL -->
 
 <!-- CADASTRO -->
 
-<section class="container">
+<section class="modal-fundo oculto" id="modal-cadastro-cliente">
 
     <section class="modal">
 
+        <button type="button" id="fechar-modal-cliente" class="botao-fechar" aria-label="Fechar">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
         <h2 class="titulo-modal">CADASTRAR TAREFA</h2>
 
-        <section class = "modal-overlay">
+        <section class="modal-overlay">
 
             <form action="action.php" method="post">
-                <!-- Campos do formulário -->
-                <label for="nome">Título</label><br>
-                <input type="text" id="nome" name="nome" placeholder="Título" required>
+                <label for="nome">Nome Completo</label><br>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
                 <br><br>
-                <label for="descricao">Descricao</label><br>
-                <input type="text" id="descricao" name="descricao" placeholder="Descreva a tarefa" required>
+                <label for="cpf">CPF</label><br>
+                <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
                 <br><br>
-                <label for="expiracao">Data de Expiração</label><br>
-                <input type="date" id="expiracao" name="expiracao" placeholder="Data de Expiração" required>
+                <label for="emailCadastro">Email</label><br>
+                <input type="email" id="emailCadastro" name="email" placeholder="E-mail" required>
                 <br><br>
-                <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($_SESSION['usuario_id']) ?>">
-                <input class="submit" type="submit" value="CADASTRAR" name="tarefa">
-                <section class="container-links">
-                        <p>Voltar para Tarefas? <a href="cadastro_atividades.php">Voltar</a></p>
-                </section>
+                <label for="telefone">Telefone</label><br>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
+                <br><br>
+                <label for="nascimento">Nascimento</label><br>
+                <input type="date" id="nascimento" name="nascimento" required>
+                <br><br>
+                <label for="senhaCadastro">Senha</label><br>
+                <input type="password" id="senhaCadastro" name="senha" placeholder="Senha" required>
+                <br><br>
+                <input class="submit" type="submit" value="CADASTRAR" name="cadastro">
             </form>
 
         </section>
@@ -68,13 +41,3 @@ include 'cabecalho.php';
     </section>
 
 </section>
-
-
-
-<!-- RODAPÉ -->
-
-<footer>
-</footer>
-    
-</body>
-</html>
