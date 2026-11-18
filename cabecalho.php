@@ -22,14 +22,14 @@ function ativo($pagina, $paginaAtual) {
             
                 <section class="logo">
                     <p>
-                        <span><img src="img/logo-bolinha.svg" alt="Logo" width="50" height="50" onclick="location.href='index.php'"></span>    
-                        <span class="texto-logo" onclick="location.href='index.php'">Priscila Bressan</span>
+                        <span><img src="img/logo-bolinha.svg" alt="Logo" width="50" height="50" onclick="location.href=''"></span>    
+                        <span class="texto-logo" onclick="location.href=''">Priscila Bressan</span>
                     </p>
                 </section>
 
                 <section class="navegacao">
 
-                    <a class="botao-menu<?= ativo('index.php', $paginaAtual) ?>" href="index.php">
+                    <a class="botao-menu<?= ativo('', $paginaAtual) ?>" href="">
                         <i class="bi bi-house-door"></i>
                         Home
                     </a>           
