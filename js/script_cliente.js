@@ -41,7 +41,7 @@ async function abrirPainel(linha) {
         document.getElementById('painel-nome').textContent = dados.nome;
         document.getElementById('painel-telefone').textContent = dados.telefone;
         document.getElementById('painel-email').textContent = dados.email;
-        document.getElementById('painel-idade').textContent = dados.idade, " anos";
+        document.getElementById('painel-idade').textContent = dados.idade + " anos";
 
         linhas.forEach(linhaTabela => {
             linhaTabela.classList.remove('linha-selecionada');
@@ -62,10 +62,15 @@ function fecharPainel() {
     painelFundo.classList.add('oculto');
     painel.classList.add('oculto');
 
+    linhas.forEach(linhaTabela => {
+            linhaTabela.classList.remove('linha-selecionada');
+        });
 }
 
 linhas.forEach(function (linha) {
-    linha.addEventListener('click', abrirPainel);
+    linha.addEventListener('click', function(event){
+        abrirPainel(linha);
+    });
 });
 
 botaoFecharPainel.addEventListener('click', fecharPainel);

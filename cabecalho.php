@@ -58,5 +58,3 @@ function ativo($pagina, $paginaAtual) {
     </nav>
 
 </header>
-
-<script src="js/script_cabecalho.js" defer></script>

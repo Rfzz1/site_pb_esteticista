@@ -65,3 +65,20 @@
 .subtitulo-clientes {
     font-size: 18px;
 }
+
+.linha-cliente {
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out 0s;
+}
+
+.linha-cliente:hover {
+    background-color: #c7ac6642;
+}
+
+.linha-selecionada td {
+    background-color: #c7ac6642;
+}
+
+.linha-selecionada td:first-child {
+    box-shadow: inset 3px 0 0 var(--dourado);
+}
