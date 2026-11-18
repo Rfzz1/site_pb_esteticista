@@ -21,25 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
     $sqlCadastro->bind_param("ssssss", $nome, $cpf, $email, $telefone, $nascimento, $senhaHashada);
     $sqlCadastro->execute();
 
-    header("Location: index.php");
-    exit;
-}
-
-//CADASTRO TAREFAS
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tarefa'])) {
-
-    $nome = htmlspecialchars(trim($_POST['nome']) ?? "");
-    $descricao = htmlspecialchars(trim($_POST['descricao']) ?? "");
-    $tempo = htmlspecialchars(trim($_POST['expiracao']) ?? "");
-    $id_usuario = htmlspecialchars(trim($_POST['id']) ?? "");
-
-    $sqlCadastro = $conexao->prepare("INSERT INTO tb_tarefas (nome,descricao,tempo,id_usuario) VALUES (?,?,?,?)");
-
-    $sqlCadastro->bind_param("sssi", $nome, $descricao, $tempo, $id_usuario);
-    $sqlCadastro->execute();
-
-    header("Location: cadastro_atividades.php");
+    header("Location: gerenciamento_de_clientes.php");
     exit;
 }
 

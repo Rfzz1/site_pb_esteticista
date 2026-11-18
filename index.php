@@ -87,9 +87,6 @@ include 'conexao.php';
                             <?php endif ?>
                         </section>
                         <input class="submit" type="submit" value="LOGIN">
-                        <section class="container-links">
-                            <p>Não possui uma conta? <a href="#" onclick="trocarModal('modalLogin', 'modalCadastro'); return false;">Criar Conta</a></p>
-                        </section>
                     </form>
 
                 </section>
@@ -98,55 +95,9 @@ include 'conexao.php';
 
         </section>
 
-
-    <!-- CADASTRO -->
-
-    <section class="container-modal oculto" id="modalCadastro">
-
-        <section class="modal" id="cadastro">
-
-            <h2 class="titulo-modal">CRIAR CONTA</h2>
-
-            <section class="modal-overlay">
-
-                <form action="action.php" method="post">
-                    <label for="nome">Nome Completo</label><br>
-                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
-
-                    <label for="cpf">CPF</label><br>
-                    <input type="text" id="cpf" name="cpf" placeholder="___.___.___-__" required>
-            
-                    <label for="emailCadastro">Email</label><br>
-                    <input type="email" id="emailCadastro" name="email" placeholder="E-mail" required>
-               
-                    <label for="telefone">Telefone</label><br>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
-               
-                    <label for="nascimento">Nascimento</label><br>
-                    <input type="date" id="nascimento" name="nascimento" required>
-                
-                    <label for="senhaCadastro">Senha</label><br>
-                    <input type="password" id="senhaCadastro" name="senha" placeholder="Senha" required>
-            
-                    <input class="submit" type="submit" value="CADASTRAR" name="cadastro">
-                    <section class="container-links">
-                        <p>Já possui uma conta? <a href="#" onclick="trocarModal('modalCadastro', 'modalLogin'); return false;">Entrar</a></p>
-                    </section>
-                </form>
-
-            </section>
-
-        </section>
-
-    </section>
-
-
     <?php endif ?>
 
 </section>
-
-<script src="js/script_modal.js" defer></script>
-
 
 <!-- RODAPÉ -->
 

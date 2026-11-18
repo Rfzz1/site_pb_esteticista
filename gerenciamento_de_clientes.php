@@ -32,6 +32,7 @@ if ($clientesTotal) {
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/gerenciar_clientes.css">
+    <link rel="stylesheet" href="css/painel_clientes.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="icon" href="img/favicon.ico" sizes="any">
@@ -58,14 +59,7 @@ if ($clientesTotal) {
         }
     ?>
 
-    <!-- TABELA -->
-
-    <?php 
-    //Para cada cliente, exibir em uma tabela: Nome, primeiros 6 dígitos do CPF, Email, Telefone, Próximo Atendimentos
-    //Botao de Editar
-    //Botao de Excluir com confirmação
-
-    ?>
+<!-- TABELA -->
 
     <section class="conteudo-global">
 
@@ -96,7 +90,7 @@ if ($clientesTotal) {
                 <tbody>
                     <?php while ($cliente = $resultado -> fetch_assoc()): ?>
 
-                        <tr>
+                        <tr class="linha-cliente" data-id="<?php echo (int) $cliente['id'] ?>">
                             <td>
                                 <p><?php echo htmlspecialchars(trim($cliente['nome']) ?? "")?></p>
                                 <p class="email-cliente"><?php echo htmlspecialchars(trim($cliente['email']) ?? "")?></p>
@@ -116,6 +110,7 @@ if ($clientesTotal) {
 
 </section>
     
+<?php include 'painel_cliente.php'; ?>
 <?php include 'modal_cadastro_cliente.php'; ?>
 <script src="js/script_cliente.js" defer></script>
 </body>
