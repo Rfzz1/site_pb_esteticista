@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include 'conexao.php';
+include 'funcoes.php';
 
 $sql = $conexao -> prepare("SELECT * FROM tb_usuarios");
 $sql -> execute();
@@ -110,7 +111,6 @@ if ($clientesTotal) {
 
 </section>
 
-<?php include 'funcoes.php'; ?>
 <?php include 'painel_cliente.php'; ?>
 <?php include 'modal_cadastro_cliente.php'; ?>
 <script src="js/script_cliente.js" defer></script>

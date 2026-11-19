@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include 'conexao.php';
+include 'funcoes.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -56,7 +57,5 @@ echo json_encode([
     'idade' => $idadeUser,
     'iniciais' => $iniciaisUser
 ]);
-
-include 'funcoes.php';
 
 ?>

@@ -25,7 +25,7 @@
                 <input type="email" id="emailCadastro" name="email" placeholder="E-mail" maxlength="120" required>
 
                 <label for="telefone">Telefone</label><br>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" pattern="\(\d{2}\)\ d{1}\ d{4}-\d{4}" maxlength="15" required>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" pattern="\(\d{2}\)\d{1}\ d{4}-\d{4}" maxlength="16" required>
 
                 <label for="nascimento">Nascimento</label><br>
                 <input type="date" id="nascimento" name="nascimento" required>
