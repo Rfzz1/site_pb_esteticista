@@ -95,7 +95,7 @@ if ($clientesTotal) {
                                 <p><?php echo htmlspecialchars(trim($cliente['nome']) ?? "")?></p>
                                 <p class="email-cliente"><?php echo htmlspecialchars(trim($cliente['email']) ?? "")?></p>
                             </td>
-                            <td><p><?php echo htmlspecialchars(trim($cliente['telefone']) ?? "")?></p></td>
+                            <td><p><?php echo htmlspecialchars(formatarTelefone($cliente['telefone']))?></p></td>
                             <td><p><?php echo htmlspecialchars(trim($cliente['cpf']) ?? "")?></p></td>
                             <td></td>
                         </tr>
@@ -109,9 +109,11 @@ if ($clientesTotal) {
     </section>
 
 </section>
-    
+
+<?php include 'funcoes.php'; ?>
 <?php include 'painel_cliente.php'; ?>
 <?php include 'modal_cadastro_cliente.php'; ?>
 <script src="js/script_cliente.js" defer></script>
+<script src="js/script_mascaras.js" defer></script>
 </body>
 </html>

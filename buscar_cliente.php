@@ -51,10 +51,12 @@ if (count($partes) > 1) {
 
 echo json_encode([
     'nome' => $dadosUser['nome'],
-    'telefone' => $dadosUser['telefone'],
+    'telefone' => formatarTelefone($dadosUser['telefone']),
     'email' => $dadosUser['email'],
     'idade' => $idadeUser,
     'iniciais' => $iniciaisUser
 ]);
+
+include 'funcoes.php';
 
 ?>

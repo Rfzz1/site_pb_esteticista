@@ -7,12 +7,12 @@ include 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
 
-    $nome = htmlspecialchars(trim($_POST['nome']) ?? "");
-    $cpf = htmlspecialchars(trim($_POST['cpf']) ?? "");
-    $email = htmlspecialchars(trim($_POST['email']) ?? "");
-    $telefone = htmlspecialchars(trim($_POST['telefone']) ?? "");
-    $nascimento = htmlspecialchars(trim($_POST['nascimento']) ?? "");
-    $senha = htmlspecialchars(trim($_POST['senha']) ?? "");
+    $nome = trim($_POST['nome']) ?? "";
+    $cpf = preg_replace('/\D/', '', $_POST['cpf'] ?? "");
+    $email = trim($_POST['email']) ?? "";
+    $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? "");
+    $nascimento = trim($_POST['nascimento']) ?? "";
+    $senha = trim($_POST['senha']) ?? "";
 
     $senhaHashada = password_hash($senha, PASSWORD_DEFAULT);
 
@@ -22,18 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
     $sqlCadastro->execute();
 
     header("Location: gerenciamento_de_clientes.php");
-    exit;
-}
-
-//EXCLUIR TAREFAS
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_tarefa'])) {
-    $id_tarefa = htmlspecialchars(trim($_POST['id']) ?? "");
-
-    $sqlExclusao = $conexao -> prepare("DELETE FROM tb_tarefas WHERE id = ?");
-    $sqlExclusao -> bind_param("i", $id_tarefa);
-    $sqlExclusao -> execute();
-
-    header("Location: cadastro_atividades.php");
     exit;
 }

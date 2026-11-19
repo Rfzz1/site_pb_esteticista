@@ -1,3 +1,4 @@
+//Cadastro Cliente
 const fundo = document.getElementById('modal-cadastro-cliente');
 const botaoAbrir = document.getElementById('abrir-modal-cliente');
 const botaoFechar = document.getElementById('fechar-modal-cliente');
