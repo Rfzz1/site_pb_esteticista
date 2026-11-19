@@ -15,14 +15,16 @@ function mascararCpf(){
         formatado = digitos.slice(0,3) + "." + digitos.slice(3, 6) + "." + digitos.slice(6, 9) + "-" + digitos.slice(9);
     }
 
-    campoCPF.value(formatado);
+    campoCPF.value = formatado;
 }
 
 function mascararTelefone() {
     const digitosTel = campoTelefone.value.replace(/\D/g, '').slice(0,11);
     let formatadoTel = digitosTel
 
-    if (digitosTel.length <= 2) {
+    if (digitosTel.length === 0) {
+        formatadoTel = "";
+    } else if (digitosTel.length <= 2) {
         formatadoTel = "(" + digitosTel.slice(0,2);
     } else if(digitosTel.length <= 3) {
         formatadoTel = "(" + digitosTel.slice(0,2) + ") " + digitosTel.slice(2);
@@ -32,7 +34,7 @@ function mascararTelefone() {
         formatadoTel = "(" + digitosTel.slice(0,2) + ") " + digitosTel.slice(2,3) + " "  + digitosTel.slice(3, 7) + "-" + digitosTel.slice(7);
     }
 
-    campoTelefone.value(formatadoTel);
+    campoTelefone.value = formatadoTel;
 }
 
 campoCPF.addEventListener('input', mascararCpf);

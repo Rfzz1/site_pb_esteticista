@@ -7,12 +7,12 @@ include 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
 
-    $nome = trim($_POST['nome']) ?? "";
+    $nome = trim($_POST['nome'] ?? "");
     $cpf = preg_replace('/\D/', '', $_POST['cpf'] ?? "");
-    $email = trim($_POST['email']) ?? "";
+    $email = trim($_POST['email'] ?? "");
     $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? "");
-    $nascimento = trim($_POST['nascimento']) ?? "";
-    $senha = trim($_POST['senha']) ?? "";
+    $nascimento = trim($_POST['nascimento'] ?? "");
+    $senha = trim($_POST['senha'] ?? "");
 
     $senhaHashada = password_hash($senha, PASSWORD_DEFAULT);
 
