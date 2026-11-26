@@ -19,11 +19,11 @@ if (!isset($user_id) || $user_id == null) {
     exit;
 }
 
-$queryInfosUsuario = $conexao -> prepare("SELECT nome, cpf, telefone, email, nascimento FROM tb_usuarios WHERE id = ?");
+$queryInfosUsuario = $conexao -> prepare("SELECT nome, cpf, telefone, email, nascimento, id FROM tb_usuarios WHERE id = ?");
 $queryInfosUsuario -> bind_param("i", $user_id);
 $queryInfosUsuario -> execute();
 
-$dadosUserResultado = $queryInfosUsuario -> get_result();
+$dadosUserResultado = $queryInfosUsuario -> get_result();   
 $dadosUser = $dadosUserResultado -> fetch_assoc();
 
 if (!$dadosUser) {
@@ -49,13 +49,13 @@ if (count($partes) > 1) {
     $iniciaisUser .= mb_strtoupper(mb_substr($ultimoNome, 0, 1, "UTF-8"), "UTF-8");
 }
 
-
 echo json_encode([
     'nome' => $dadosUser['nome'],
     'telefone' => formatarTelefone($dadosUser['telefone']),
     'email' => $dadosUser['email'],
     'idade' => $idadeUser,
-    'iniciais' => $iniciaisUser
+    'iniciais' => $iniciaisUser,
+    'id' => $dadosUser['id'],
+    'cpf' => mascararCPF($dadosUser['cpf']),
+    'nascimento' => $dadosUser['nascimento']
 ]);
-
-?>

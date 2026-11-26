@@ -71,6 +71,12 @@ input {
   font-family: inherit;
 }
 
+input[readonly] {
+  cursor: not-allowed;
+  background: var(--cinza-claro); 
+  color: var(--verde);
+}
+
 input:focus {
   outline: 1px solid var(--verde);
 }

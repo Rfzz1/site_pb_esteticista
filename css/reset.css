@@ -1,11 +1,14 @@
 :root {
     --altura-cabecalho: 10vh;
+    --largura-tabela: 77.6vw;
     --dourado: #C9A54C;
     --branco: #F7F5EF;
     --verde: #0F3D2E;
     --lavanda: #7E6B8F;
     --oliva: #848161;
-    --largura-tabela: 77.6vw;
+    --cinza-claro: #E4E0D6;
+    --cinza-medio: #A8A296;
+    --cinza-escuro: #6B665C;
 }
 
 

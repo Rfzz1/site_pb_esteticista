@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header('index.php');
+    exit;
+}
 include 'conexao.php';
 
 
@@ -23,4 +28,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastro'])) {
 
     header("Location: gerenciamento_de_clientes.php");
     exit;
+}
+
+//EDIÇÃO USUÁRIO
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editar'])) {
+    $nome = trim($_POST['nome'] ?? "");
+    $email = trim($_POST['email'] ?? "");
+    $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? '');
+    $id = filter_input(INPUT_POST, 'id_usuario', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+
+    $sqlBuscaEmail = $conexao -> prepare("SELECT * from tb_usuarios");
+    $sqlBuscaEmail -> execute();
+    $resultado = $sqlBuscaEmail -> get_result();
+
+    while ($cliente = $resultado -> fetch_assoc()) {
+        $emailExistente = $cliente['email'];
+    }
+
+    $invalido = $id === null || $id === false
+         || $nome === ''
+         || !filter_var($email, FILTER_VALIDATE_EMAIL)
+         || strlen($telefone) !== 11
+         || $email == $emailExistente
+         || mb_strlen($nome) > 100;
+
+    if ($invalido) {
+        header("Location: gerenciamento_de_clientes.php");
+        exit;
+    }
+
+    $sqlEditar = $conexao -> prepare ("UPDATE tb_usuarios SET nome = ?, email = ?, telefone = ? WHERE id = ?");
+    $sqlEditar -> bind_param("sssi", $nome, $email, $telefone, $id);
+    $executou = $sqlEditar -> execute();
+
+    header("Location: gerenciamento_de_clientes.php?abrir=" .$id);
+    exit; 
 }

@@ -1,4 +1,3 @@
-
 <section class="painel-fundo oculto" id="painel-fundo">
 
     <section id="dados-cliente" class="dados-cliente oculto">
@@ -21,11 +20,11 @@
             </ul>
 
             <section class="botoes-cliente">
-                <button>
+                <button type="button" id="botao-agendar-cliente">
                     <i class="bi bi-calendar-plus"></i>
                     Agendar Atendimento
                 </button>
-                <button>
+                <button type="button" id="botao-editar-cliente">
                     <i class="bi bi-pencil"></i>
                     Editar Dados
                 </button>

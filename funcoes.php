@@ -9,3 +9,14 @@ function formatarTelefone($telefone) {
 
     return $telefone;
 }
+
+function mascararCPF($cpf) {
+    
+    if (strlen($cpf) != 11) {
+        return $cpf;
+    }
+
+    $cpf = "***.***.***-" . substr($cpf, 9); 
+
+    return $cpf;
+}

@@ -112,7 +112,7 @@ if ($clientesTotal) {
 </section>
 
 <?php include 'painel_cliente.php'; ?>
-<?php include 'modal_cadastro_cliente.php'; ?>
+<?php include 'modal_cliente.php'; ?>
 <script src="js/script_cliente.js" defer></script>
 <script src="js/script_mascaras.js" defer></script>
 </body>
