@@ -113,6 +113,8 @@ if ($clientesTotal) {
 
 <?php include 'painel_cliente.php'; ?>
 <?php include 'modal_cliente.php'; ?>
+<?php include 'modal_atendimento.php'; ?>
+<script src="js/modal.js" defer></script>
 <script src="js/script_cliente.js" defer></script>
 <script src="js/script_mascaras.js" defer></script>
 </body>

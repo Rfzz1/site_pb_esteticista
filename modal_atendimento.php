@@ -29,13 +29,11 @@ $listaStatus = listarStatus($conexao);
 
             <form action="action.php" method="post">
 
-                <input type="hidden" id="editar-id" name="id_usuario">
-
                 <label for="dataHora">Data e Hora</label><br>
                 <input type="datetime-local" id="dataHora" name="dataHora" required>
 
                 <label for="status">Status Atendimento</label><br>
-                <select name="status" id="status">
+                <select name="status" id="status" class="select" required>
                     <option value="">Selecione...</option>
                     <?php foreach($listaStatus as $status): ?>
                         <option value="<?php echo htmlspecialchars($status); ?>"><?php echo htmlspecialchars($status); ?></option>
@@ -43,7 +41,7 @@ $listaStatus = listarStatus($conexao);
                 </select>
 
                 <label for="servico">Serviço</label><br>
-                <select name="servico" id="servico" required>
+                <select name="servico" id="servico" class="select" required>
                     <option value="">Selecione...</option>
                     <?php foreach($listaServico as $servico): ?>
                         <option value="<?php echo htmlspecialchars($servico); ?>"><?php echo htmlspecialchars($servico); ?></option>                
@@ -51,8 +49,8 @@ $listaStatus = listarStatus($conexao);
                 </select>
 
                 <label for="id_cliente">Cliente</label><br>
-                <select name="id_cliente" id="id_cliente">
-                    <option value="">Selecione...</option>
+                <select name="id_cliente" id="id_cliente" class="select" required>
+                    <option value="">Selecione... </option>
                     <?php while ($cliente = $resultadoBuscaClientes -> fetch_assoc()): ?>
                             <option value="<?php echo htmlspecialchars($cliente['id'])?>"><?php echo htmlspecialchars($cliente['nome'])  ?></option>               
                     <?php endwhile; ?>

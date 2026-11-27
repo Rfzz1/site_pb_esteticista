@@ -52,13 +52,25 @@ function modoEdicao(dados) {
     botaoSalvar.value = "SALVAR";
 }
 
-function abrirModal() {
-    fundo.classList.remove('oculto');
+// ============= AGENDAR CLIENTE ===============
+
+const botaoAbrirAgendamento = document.getElementById('botao-agendar-cliente');
+const fundoAgendamento = document.getElementById('modal-atendimento');
+const botaoFecharAgendamento = document.getElementById('fechar-modal-atendimento');
+const formAgendamento = document.querySelector('#modal-atendimento form');
+
+function abrirModalAgendamento() {
+    formAgendamento.reset();
+    fecharPainel();
+    abrirModal(fundoAgendamento);
 }
 
-function fecharModal() {
-    fundo.classList.add('oculto');
-}
+botaoAbrirAgendamento.addEventListener('click', function(event) {
+    abrirModalAgendamento();
+});
+
+acaoModal(fundoAgendamento, botaoFecharAgendamento);
+
 
 //======== Painel Cliente ===========
 const painelFundo = document.getElementById('painel-fundo');
@@ -144,41 +156,13 @@ botaoEditar.addEventListener('click', function(event) {
 
     modoEdicao(clienteSelecionado);
     fecharPainel();
-    abrirModal();
+    abrirModal(fundo);
 })
 
 botaoAbrirCadastro.addEventListener('click', function(event) {
 
     modoCadastro();
-    abrirModal();
+    abrirModal(fundo);
 });
 
-botaoFecharCadastro.addEventListener('click', fecharModal);
-fundo.addEventListener('click',function(event) {
-    if (event.target === fundo) {
-        fecharModal();
-    }
-});
-
-// ============= AGENDAR CLIENTE ===============
-
-const botaoAbrirAgendamento = document.getElementById('botao-agendar-cliente');
-const fundoAgendamento = document.getElementById('modal-atendimento');
-const botaoFecharAgendamento = document.getElementById('fechar-modal-atendimento');
-const formAgendamento = document.querySelector('#modal-atendimento form');
-
-function abrirModalAgendamento() {
-    formAgendamento.reset();
-    fundoAgendamento.classList.remove('oculto');
-}
-
-botaoAbrirAgendamento.addEventListener('click', function(event) {
-    abrirModalAgendamento();
-});
-
-botaoFecharAgendamento.addEventListener('click', fecharModal);
-fundoAgendamento.addEventListener('click',function(event) {
-    if (event.target === fundoAgendamento) {
-        fecharModal();
-    }
-});
+acaoModal(fundo, botaoFecharCadastro);

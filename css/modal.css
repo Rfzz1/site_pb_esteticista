@@ -57,23 +57,24 @@
   color: var(--oliva);
 }
 
-input {
-  padding: 10px;
+input,
+select {
+  padding: 8px;
   border-radius: 8px;
   color: var(--verde);
   margin-bottom: 25px;
   margin-top: 10px;
   width: 100%;
   max-width: 400px;
-  font-size: 15px;
-  border: 1px solid var(--verde);
+  font-size: 16px;
+  border: 1px solid var(--borda);
   cursor: pointer;
   font-family: inherit;
 }
 
 input[readonly] {
   cursor: not-allowed;
-  background: var(--cinza-claro); 
+  background: var(--cinza-claro);
   color: var(--verde);
 }
 
@@ -131,4 +132,18 @@ input:focus {
 
 .botao-fechar:hover {
   background-color: rgba(201, 199, 199, 0.507);
+}
+
+.select {
+  /* Remove a seta padrão do navegador */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Ícone bi-chevron-down em SVG */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
 }
