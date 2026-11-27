@@ -20,3 +20,31 @@ function mascararCPF($cpf) {
 
     return $cpf;
 }
+
+function listarServicos($conexao) {
+    //Buscar Servico
+    $sqlBuscaServicos = $conexao -> query("SHOW COLUMNS FROM tb_atendimentos LIKE 'servicos'");
+
+    $linha = $sqlBuscaServicos -> fetch_assoc();
+
+    if ($linha == null) {
+        return [];
+    }
+
+    preg_match_all("/'([^']*)'/", $linha['Type'], $servico);
+    
+    
+    return $servico[1];
+}
+
+function listarStatus($conexao) {
+    $sqlBuscaStatus = $conexao -> query ("SHOW COLUMNS FROM tb_atendimentos LIKE 'status'");
+    $linha = $sqlBuscaStatus -> fetch_assoc();
+
+    if ($linha == null) {
+        return [];
+    }
+
+    preg_match_all("/'([^']*)'/", $linha['Type'], $status);
+    return $status[1];
+}

@@ -159,3 +159,26 @@ fundo.addEventListener('click',function(event) {
         fecharModal();
     }
 });
+
+// ============= AGENDAR CLIENTE ===============
+
+const botaoAbrirAgendamento = document.getElementById('botao-agendar-cliente');
+const fundoAgendamento = document.getElementById('modal-atendimento');
+const botaoFecharAgendamento = document.getElementById('fechar-modal-atendimento');
+const formAgendamento = document.querySelector('#modal-atendimento form');
+
+function abrirModalAgendamento() {
+    formAgendamento.reset();
+    fundoAgendamento.classList.remove('oculto');
+}
+
+botaoAbrirAgendamento.addEventListener('click', function(event) {
+    abrirModalAgendamento();
+});
+
+botaoFecharAgendamento.addEventListener('click', fecharModal);
+fundoAgendamento.addEventListener('click',function(event) {
+    if (event.target === fundoAgendamento) {
+        fecharModal();
+    }
+});

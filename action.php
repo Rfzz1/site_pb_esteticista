@@ -38,12 +38,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editar'])) {
     $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? '');
     $id = filter_input(INPUT_POST, 'id_usuario', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
 
-    $sqlBuscaEmail = $conexao -> prepare("SELECT * from tb_usuarios");
+    $sqlBuscaEmail = $conexao -> prepare("SELECT id FROM tb_usuarios WHERE email = ? AND id <> ?");
+    $sqlBuscaEmail -> bind_param("si", $email, $id);
     $sqlBuscaEmail -> execute();
     $resultado = $sqlBuscaEmail -> get_result();
 
-    while ($cliente = $resultado -> fetch_assoc()) {
-        $emailExistente = $cliente['email'];
+    $emailExistente = $resultado -> num_rows > 0;
+
+    if ($emailExistente) {
+        header("Location: gerenciamento_de_clientes.php");
+        exit; 
     }
 
     $invalido = $id === null || $id === false
